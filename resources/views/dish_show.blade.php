@@ -8,12 +8,6 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-
-                    <?php
-    	$url = url()->current();
-    	$ur2 = url()->previous();
-    	echo $url.$ur2;
-                    ?>
                 </div>
             </div>
         </div>
