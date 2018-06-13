@@ -18,6 +18,7 @@ class CreateTableDishesIngredients extends Migration
             $table->foreign('order_id')->references('id')->on('orders');
             $table->integer('ingredient_id');
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
+            $table->timestamps();
         });
     }
 

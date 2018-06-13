@@ -19,6 +19,7 @@ class CreateTableRating extends Migration
             $table->integer('dish');
             $table->foreign('dish')->references('id')->on('dishes');
             $table->integer('score');
+            $table->timestamps();
         });
     }
 

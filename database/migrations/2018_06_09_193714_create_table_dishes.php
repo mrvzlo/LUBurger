@@ -18,6 +18,7 @@ class CreateTableDishes extends Migration
             $table->string('name', 15);
             $table->decimal('price', 5, 2);
             $table->string('photo_url', 100);
+            $table->timestamps();
         });
     }
 

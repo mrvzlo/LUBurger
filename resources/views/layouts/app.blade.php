@@ -33,7 +33,6 @@
                 <a class="navbar-brand" href="{{ url(App::getLocale()) }}">
                     {{ __('msg.home') }}
                 </a>
-                <a class="navbar-brand" href="{{ url(App::getLocale().'/dish/0') }}">test</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -41,7 +40,9 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                    @if (Auth::user()->isChef())
+                    <li><a class="navbar-brand" href="{{ url(App::getLocale().'/ingredients') }}">{{ __('msg.ingred') }}</a></li>
+                    @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->

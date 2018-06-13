@@ -7,5 +7,7 @@ Route::get('{locale}/dish/add','DishController@create');
 Route::get('{locale}/dish/{id}','DishController@show');
 
 Route::get('{locale}/ingredients','IngredientController@index');
+Route::get('{locale}/ingredients/new','IngredientController@store');
 
 Route::get('{locale}', 'GaleryController@index');
+Route::resource('ingredient', 'IngredientController');

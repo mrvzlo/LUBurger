@@ -18,6 +18,7 @@ class CreateTableOrdersDishes extends Migration
             $table->foreign('order_id')->references('id')->on('orders');
             $table->integer('dish_id');
             $table->foreign('dish_id')->references('id')->on('dishes');
+            $table->timestamps();
         });
     }
 
