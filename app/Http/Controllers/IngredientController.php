@@ -10,7 +10,7 @@ class IngredientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('admin');
+        $this->middleware('chef');
     }
 
 	public function index($lang)

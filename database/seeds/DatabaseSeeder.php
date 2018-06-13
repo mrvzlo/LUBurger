@@ -24,5 +24,12 @@ class DatabaseSeeder extends Seeder
 			'password' => bcrypt('qweasd'),
 			'phone' => '12345654321',
 		]);	
+    	DB::table('users')->insert([
+			'name' => 'Chef',
+			'email' => 'Chef@luburger.lv',
+			'password' => bcrypt('qweasd'),
+			'phone' => '88005553535',
+			'role' => 3,
+		]);	
     }
 }
