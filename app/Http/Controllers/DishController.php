@@ -8,7 +8,13 @@ class DishController extends Controller
 {
 	public function show($lang, $id)
 	{
-    	app('App\Http\Controllers\LangController')->apply($lang);
+    	ChangeLang($lang);
 		return view('dish_show');
+	}
+
+	public function create($lang)
+	{
+    	ChangeLang($lang);
+    	return view('dish_add');
 	}
 }

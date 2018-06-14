@@ -40,8 +40,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-                    @if (Auth::user()->isChef())
+                    @if (!Auth::guest())
+                    @if (Auth::User()->isChef())
                     <li><a class="navbar-brand" href="{{ url(App::getLocale().'/ingredients') }}">{{ __('msg.ingred') }}</a></li>
+                    @endif
                     @endif
                     </ul>
 

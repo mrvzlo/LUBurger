@@ -10,8 +10,9 @@
             
             <li> 
             	<form action="{{url(App::getLocale().'/ingredients/new')}}" class='form-horizontal' accept-charset="UTF-8">
+            		@csrf
                     <input class="form-control " name="name" type="text" value="">   
-                    <input class="btn btn-primary" type="submit" value="Add">
+                    <input class="btn btn-primary" type="submit" value={{__('msg.add')}}>
                 </form>  
             </li>
             </ol>
