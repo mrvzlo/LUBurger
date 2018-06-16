@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Ingredient;
 use App\Dish;
 use App\Dish_ingr;
+use App\Rating;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -17,13 +18,36 @@ class DishController extends Controller
     public function index($lang)
     {
     	ChangeLang($lang);
-        return view('home');
+        $req = Dish::all();
+        foreach ($req as $key => $value) 
+            {   
+                $a=$req[$key]->name;
+                $a=strtolower($a);
+                if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
+                $req[$key]->name=$a;
+            }
+        return view('home',['dishes'=>$req]);
     }
 
 	public function show($lang, $id)
 	{
     	ChangeLang($lang);
-		return view('dish_show');
+        $req = Dish::findOrFail($id);
+        $a=$req->name;
+        $a=strtolower($a);
+        if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
+        $req->name=$a;
+        $ing = Dish_ingr::where('dish_id','=',$id)->get();
+        foreach ($ing as $key => $value) {
+            $ing[$key]=Ingredient::findOrFail($ing[$key]->ingredient_id)->name;
+            $a=$ing[$key];
+            $a=strtolower($a);
+            if (__('msg.'.$a) != 'msg.'.$a) $a=strtolower(__('msg.'.$a));
+            $ing[$key]=$a;
+            if ($key!=0) $ing[$key]=', '.$ing[$key];
+        }
+
+		return view('dish_show',['dish'=>$req,'ings'=>$ing]);
 	}
 
 	public function create($lang)

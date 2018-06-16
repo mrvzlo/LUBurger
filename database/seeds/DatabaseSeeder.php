@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
 		DB::table('dishes')->insert([
 			'name' => 'Bacon burger',
 			'price' => 7.50,
-			'photo_url' => 'bacon.jpeg',
+			'photo_url' => 'bacon.jpg',
 		]);
 		DB::table('dishes')->insert([
 			'name' => 'Vegetarian',

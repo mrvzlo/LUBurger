@@ -11,23 +11,37 @@
         @endif
     @endif
     <div class="row justify-content-center">
-        <div class="col-md-5">
+        <div class="col-md-4">
+            <?php $i=0; ?>
+            @foreach ($dishes as $dish)
+            <?php $i++; ?>
+            @if ($i%2==1)
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+                <a href="{{ url(App::getLocale().'/dish/'.$dish->id)}}">
+                <div class="card-header">{{$dish->name}}</div>
                 <div class="card-body">
-
+                    <img class="img-thumbnail" src="{{ url('uploads/'.$dish->photo_url)}}" alt="">
                 </div>
+                </a>
             </div>
+            @endif
+            @endforeach
         </div>
-        <div class="col-md-5">
+        <div class="col-md-4">
+            <?php $i=0; ?>
+            @foreach ($dishes as $dish)
+            <?php $i++; ?>
+            @if ($i%2==0)
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
+                <a href="{{ url(App::getLocale().'/dish/'.$dish->id)}}">
+                <div class="card-header">{{$dish->name}}</div>
                 <div class="card-body">
-
+                    <img class="img-thumbnail" src="{{ url('uploads/'.$dish->photo_url)}}" alt="">
                 </div>
+            </a>
             </div>
+            @endif
+            @endforeach
         </div>
     </div>
 </div>
