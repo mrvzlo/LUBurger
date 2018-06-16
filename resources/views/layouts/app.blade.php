@@ -43,6 +43,8 @@
                     @if (!Auth::guest())
                     @if (Auth::User()->isChef())
                     <li><a class="navbar-brand" href="{{ url(App::getLocale().'/ingredients') }}">{{ __('msg.ingred') }}</a></li>
+                    @elseif (Auth::User()->isAdmin())
+                    <li><a class="navbar-brand" href="{{ url(App::getLocale().'/users') }}">{{ __('msg.users') }}</a></li>
                     @endif
                     @endif
                     </ul>

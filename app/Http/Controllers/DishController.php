@@ -11,7 +11,13 @@ class DishController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('chef')->except(['show']);
+        $this->middleware('chef')->except(['show', 'index']);
+    }
+    
+    public function index($lang)
+    {
+    	ChangeLang($lang);
+        return view('home');
     }
 
 	public function show($lang, $id)
