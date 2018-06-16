@@ -12,6 +12,13 @@ return [
     'price' => 'Price',
     'photo' => 'Photo',
     'users' => 'Users',
+    'email' => 'Email',
+    'phone' => 'Phone number',
+    'role' => 'Role',
+    'admin' => 'Admin',
+    'chef' => 'Chef',
+    'none' => 'None',
+    'update' => 'Update',
 
     'chicken' => 'Chicken',
     'onion' => 'Onion',

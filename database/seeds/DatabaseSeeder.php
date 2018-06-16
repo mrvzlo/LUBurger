@@ -31,6 +31,30 @@ class DatabaseSeeder extends Seeder
 			'phone' => '88005553535',
 			'role' => 3,
 		]);	
+		DB::table('users')->insert([
+			'name' => 'Evita Dolotova',
+			'email' => 'e_dolotova@gmail.com',
+			'password' => bcrypt('qweasd'),
+			'phone' => '37123456789',
+		]);
+		DB::table('users')->insert([
+			'name' => 'Pavels Ivanovs',
+			'email' => 'pavels.ivanovs@mail.ru',
+			'password' => bcrypt('qweasd'),
+			'phone' => '37129073461',
+		]);
+		DB::table('users')->insert([
+			'name' => 'Malvine Breke',
+			'email' => 'mal.breke@gmail.com',
+			'password' => bcrypt('qweasd'),
+			'phone' => '37124870153',
+		]);
+		DB::table('users')->insert([
+			'name' => 'Janis Laizans',
+			'email' => 'janis.laizans@inbox.lv',
+			'password' => bcrypt('qweasd'),
+			'phone' => '37122117654',
+		]);
 
 		DB::table('orders')->insert([
 			'user_id' => 2,
@@ -293,6 +317,113 @@ class DatabaseSeeder extends Seeder
 		DB::table('orders_dishes')->insert([
 			'order_id' => '2',
 			'dish_id' => '6',
+		]);
+
+		
+		DB::table('rating')->insert([
+			'user' => 3,
+			'dish' => 1,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 2,
+			'dish' => 3,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 3,
+			'dish' => 8,
+			'score' => 1,
+		]);
+		DB::table('rating')->insert([
+			'user' => 4,
+			'dish' => 4,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 5,
+			'dish' => 2,
+			'score' => 3,
+		]);
+		DB::table('rating')->insert([
+			'user' => 3,
+			'dish' => 5,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 2,
+			'dish' => 1,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 4,
+			'dish' => 6,
+			'score' => 3,
+		]);
+		DB::table('rating')->insert([
+			'user' => 6,
+			'dish' => 2,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 3,
+			'dish' => 7,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 2,
+			'dish' => 3,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 5,
+			'dish' => 6,
+			'score' => 1,
+		]);
+		DB::table('rating')->insert([
+			'user' => 4,
+			'dish' => 5,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 6,
+			'dish' => 7,
+			'score' => 2,
+		]);
+		DB::table('rating')->insert([
+			'user' => 6,
+			'dish' => 8,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 3,
+			'dish' => 4,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 4,
+			'dish' => 3,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 5,
+			'dish' => 4,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 2,
+			'dish' => 7,
+			'score' => 5,
+		]);
+		DB::table('rating')->insert([
+			'user' => 6,
+			'dish' => 2,
+			'score' => 4,
+		]);
+		DB::table('rating')->insert([
+			'user' => 4,
+			'dish' => 1,
+			'score' => 5,
 		]);
     }
 }

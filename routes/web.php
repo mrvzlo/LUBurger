@@ -4,7 +4,7 @@ Route::redirect('/','/EN');
 Route::get('lang/{locale}', 'LangController@change');
 
 Route::get('{locale}/users','AdminController@index');
-Route::get('{locale}/user/change/{id}','AdminController@update');
+Route::get('{locale}/users/update','AdminController@update');
 
 Route::get('{locale}/dish/add','DishController@create');
 Route::post('{locale}/dish/new','DishController@store');
