@@ -15,7 +15,7 @@ class CreateTableDishes extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 15);
+            $table->string('name', 40);
             $table->decimal('price', 5, 2);
             $table->string('photo_url', 100);
             $table->timestamps();

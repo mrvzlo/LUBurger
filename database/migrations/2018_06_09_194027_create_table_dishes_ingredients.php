@@ -14,8 +14,8 @@ class CreateTableDishesIngredients extends Migration
     public function up()
     {
         Schema::create('dishes_ingredients', function (Blueprint $table) {
-            $table->integer('order_id');
-            $table->foreign('order_id')->references('id')->on('orders');
+            $table->integer('dish_id');
+            $table->foreign('dish_id')->references('id')->on('dishes');
             $table->integer('ingredient_id');
             $table->foreign('ingredient_id')->references('id')->on('ingredients');
             $table->timestamps();

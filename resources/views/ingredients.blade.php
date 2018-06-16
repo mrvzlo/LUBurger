@@ -5,13 +5,14 @@
         <div class="card-body">
             <ol>
              @foreach ($ings as $ingr)
-             <li>{{__('msg.'.$ingr->name)}}</li>
+             <li>{{$ingr->name}}</li>
                 @endforeach
             
             <li> 
             	<form action="{{url(App::getLocale().'/ingredients/new')}}" class='form-horizontal' accept-charset="UTF-8">
             		@csrf
-                    <input class="form-control " name="name" type="text" value="">   
+                    <input class="form-control "{{($errors->has('name') ? ' is-invalid' : '' )}} name="name" type="text" value="" autofocus>     
+                    @if ($errors->has('name')) <p>{{ $errors->first('name') }}</p> @endif 
                     <input class="btn btn-primary" type="submit" value={{__('msg.add')}}>
                 </form>  
             </li>
