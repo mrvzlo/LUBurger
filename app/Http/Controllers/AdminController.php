@@ -21,5 +21,14 @@ class AdminController extends Controller
 
     public function update($lang, Request $request)
     {
+        $data = $request->all();
+        foreach ($data as $key => $value) {
+            $id = substr($key,4);
+            if ($value=='chef') $res=3;
+            elseif ($value=='admin') $res=2;
+            else $res=1;
+            User::where('id','=',$id)->update(['role'=>$res]);
+        }
+        return redirect($lang.'/users');
     }
 }

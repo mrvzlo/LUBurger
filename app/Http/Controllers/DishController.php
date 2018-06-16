@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Ingredient;
 use App\Dish;
+use App\Rate;
 use App\Dish_ingr;
-use App\Rating;
 use Illuminate\Http\Request;
 
 class DishController extends Controller
@@ -21,6 +21,13 @@ class DishController extends Controller
         $req = Dish::all();
         foreach ($req as $key => $value) 
             {   
+                $rate = Rate::where('dish','=',$req[$key]->id)->get();
+                $count=0; $points=0;
+                foreach ($rate as $key2 => $value2) {
+                    $count++;
+                    $points+=$rate[$key2]->score;
+                }
+                $req[$key]->rating=$points/$count;
                 $a=$req[$key]->name;
                 $a=strtolower($a);
                 if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
@@ -38,6 +45,15 @@ class DishController extends Controller
         if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
         $req->name=$a;
         $ing = Dish_ingr::where('dish_id','=',$id)->get();
+
+        $rate = Rate::where('dish','=',$id)->get();
+        $count=0; $points=0;
+        foreach ($rate as $key => $value) {
+            $count++;
+            $points+=$rate[$key]->score;
+        }
+        $req->rating=$points/$count;
+
         foreach ($ing as $key => $value) {
             $ing[$key]=Ingredient::findOrFail($ing[$key]->ingredient_id)->name;
             $a=$ing[$key];

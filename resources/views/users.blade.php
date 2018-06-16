@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Ingredients'])
+@extends('layouts.app', ['title' => 'Users'])
 @section('content')
 <div class="container">
     <div class="card">
@@ -19,7 +19,7 @@
              <td>{{$user->email}} </td> 
              <td>{{$user->phone}} </td> 
              <td>
-                <select name="role" class="form-control" id="role{{$user->id}}">
+                <select name="role{{$user->id}}" class="form-control" id="role{{$user->id}}">
                         @foreach ($roles as $r)
                             <option value={{$r}} 
                             @if ($r==$roles[$user->role-1]) selected @endif
