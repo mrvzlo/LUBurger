@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Ingredients'])
+@extends('layouts.app', ['title' => __('msg.ingred')])
 @section('content')
 <div class="container">
     <div class="card">

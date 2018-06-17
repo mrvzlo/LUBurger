@@ -2,9 +2,12 @@
 @section('content')
 <div class="container">
     <div class="card">
+        <div class="card-header">
+            {{__('msg.users')}}
+        </div>
         <div class="card-body">
             <form action="{{url(App::getLocale().'/users/update')}}" class='form-horizontal'>
-            <table>
+            <table class="table table-hover">
             <tr>
                 <th></th>
                 <th>{{__('msg.name')}}</th>

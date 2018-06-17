@@ -40,7 +40,7 @@
                         @endfor  
                     </p>
                     @endif
-                    <button class="btn btn-primary">{{__('msg.toCart')}}</button>
+                    <a class="btn btn-primary" href="{{ url(App::getLocale().'/cart/add/'.$dish->id)}}">{{__('msg.toCart')}}</a>
                 </div>
             </div>
         </div>

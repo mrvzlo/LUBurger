@@ -17,13 +17,7 @@ class IngredientController extends Controller
 	{
     	ChangeLang($lang);
         $req = Ingredient::all();
-        foreach ($req as $key => $value) 
-        	{	
-        		$a=$req[$key]->name;
-        		$a=mb_strtolower($a);
-        		if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-        		$req[$key]->name=$a;
-        	}
+        foreach ($req as $v) $v->name = CanTrans($v->name);
         return view('ingredients',['ings'=>$req]);
 	}
 

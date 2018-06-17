@@ -20,7 +20,7 @@ class CreateTableOrders extends Migration
             $table->integer('status')->default(0);
             $table->decimal('sum', 5, 2);
             $table->string('address');
-            $table->datetime('delivery');
+            $table->datetime('delivery')->nullable();
             $table->timestamps();
         });
     }

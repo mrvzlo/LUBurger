@@ -8,9 +8,13 @@ use Illuminate\Support\Facades\Auth;
 
 class RatingController extends Controller
 {
+	public function __construct()
+	{
+        $this->middleware('auth');
+	}
 	public function assign($user, $dish, $score)
 	{
-		if (!Auth::Guest() && $user = Auth::User()->id)
+		if ($user = Auth::User()->id)
 		{
 			$a = Rate::where('user','=',$user)->where('dish','=',$dish);
 			if ($a->count()==0) 

@@ -57,16 +57,17 @@ class DatabaseSeeder extends Seeder
 		]);
 
 		DB::table('orders')->insert([
-			'user_id' => 2,
+			'user_id' => 5,
 			'created_at' => '2018-05-05 16:10:00',
-			'status' => 1,
+			'status' => 2,
 			'delivery' => '2018-05-05 16:40:00',
 			'sum'=> 12.00,
 			'address' => "Augusta Deglava iela 71",
 		]);	
 		DB::table('orders')->insert([
-			'user_id' => 2,
+			'user_id' => 4,
 			'created_at' => '2018-06-18 19:00:00',
+			'status' => 2,
 			'delivery' => '2018-06-18 19:30:00',
 			'sum' => 22.00,
 			'address' => "",
@@ -304,26 +305,32 @@ class DatabaseSeeder extends Seeder
 		DB::table('orders_dishes')->insert([
 			'order_id' => '1',
 			'dish_id' => '1',
+			'count' => '1',
 		]);
 		DB::table('orders_dishes')->insert([
 			'order_id' => '1',
 			'dish_id' => '1',
+			'count' => '1',
 		]);
 		DB::table('orders_dishes')->insert([
 			'order_id' => '2',
 			'dish_id' => '2',
+			'count' => '1',
 		]);
 		DB::table('orders_dishes')->insert([
 			'order_id' => '2',
 			'dish_id' => '7',
+			'count' => '1',
 		]);
 		DB::table('orders_dishes')->insert([
 			'order_id' => '2',
 			'dish_id' => '5',
+			'count' => '1',
 		]);
 		DB::table('orders_dishes')->insert([
 			'order_id' => '2',
 			'dish_id' => '6',
+			'count' => '1',
 		]);
 
 		

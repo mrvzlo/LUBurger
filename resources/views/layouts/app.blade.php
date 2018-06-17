@@ -22,9 +22,20 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <?php /*
+                        @if (!session()->exists('theme') || session('theme')=='light')
+                        light
+                        @else
+                        dark
+                        @endif */ 
+    ?>
+    <style >
+    * {font-family: 'Montserrat', sans-serif;}
+</style>
 </head>
 <body>
     <div id="app">
@@ -41,6 +52,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                     @if (!Auth::guest())
+                    <li><a class="navbar-brand" href="{{ url(App::getLocale().'/orders') }}">{{ __('msg.orders') }}</a></li>
+                    <li><a class="navbar-brand" href="{{ url(App::getLocale().'/cart') }}">{{ __('msg.cart') }}</a></li>
                     @if (Auth::User()->isChef())
                     <li><a class="navbar-brand" href="{{ url(App::getLocale().'/ingredients') }}">{{ __('msg.ingred') }}</a></li>
                     <li><a class="navbar-brand" href="{{ url(App::getlocale().'/dish/add')}}">{{__('msg.NewDish')}}</a></li>
@@ -52,18 +65,13 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        @if (!session()->exists('theme') || session('theme')=='light')
-                        light
-                        @else
-                        dark
-                        @endif
-                        <a class="nav-link" href="{{ url('theme/light')}}">
-                            <img style="height:22px;" src="{{ url('uploads/sun.png')}}"></a>
-                        <a class="nav-link" href="{{ url('theme/dark')}}">
-                            <img style="height:22px;" src="{{ url('uploads/moon.png')}}"></a>
+                        <li><a class="nav-link" href="{{ url('theme/light')}}">
+                            <img style="height:22px;" src="{{ url('uploads/sun.png')}}" alt=""></a></li>
+                        <li><a class="nav-link" href="{{ url('theme/dark')}}">
+                            <img style="height:22px;" src="{{ url('uploads/moon.png')}}" alt=""></a></li>
                         <?php $langs=['EN', 'LV', 'RU']; ?>
                         @foreach ($langs as $lang) 
-                        <li><a class="nav-link" href="{{ url('lang/'.$lang)}}"><img style="height:22px;" src="{{ url('uploads/'.$lang.'.jpg')}}"></a></li>
+                        <li><a class="nav-link" href="{{ url('lang/'.$lang)}}"><img style="height:22px;" src="{{ url('uploads/'.$lang.'.jpg')}}" alt=""></a></li>
                         @endforeach
                         <!-- Authentication Links -->
                         @guest

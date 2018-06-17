@@ -22,12 +22,7 @@ class DishController extends Controller
         $dishes = Dish::orderBy('created_at')->get();
         $ing = Ingredient::all();
 
-        foreach ($ing as $key => $value) 
-        {
-            $a=$value->name;
-            if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-            $value->name=$a;
-        }
+        foreach ($ing as $v) $v->name = CanTrans($v->name); 
 
         $data=null;
         if (!empty($_GET))
@@ -56,10 +51,7 @@ class DishController extends Controller
                 }
                 if ($count>0) $value->rating=$points/$count;
                 else $value->rating=0;
-                $a=$value->name;
-                $a=mb_strtolower($a);
-                if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-                $value->name=$a;
+                $value->name=CanTrans($value->name);
             }
 
         if (isset($data['orderby']) && $data['orderby']=='rate')
@@ -77,10 +69,7 @@ class DishController extends Controller
 	{
     	ChangeLang($lang);
         $req = Dish::findOrFail($id);
-        $a=$req->name;
-        $a=mb_strtolower($a);
-        if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-        $req->name=$a;
+        $req->name = CanTrans($req->name);
         $ing = Dish_ingr::where('dish_id','=',$id)->get();
 
         $Urate=0;
@@ -95,7 +84,7 @@ class DishController extends Controller
 
         foreach ($ing as $key => $value) {
             $ing[$key]=Ingredient::findOrFail($value->ingredient_id)->name;
-            if (__('msg.'.$ing[$key]) != 'msg.'.$ing[$key]) $ing[$key]=mb_strtolower(__('msg.'.$ing[$key]));
+            $ing[$key]=mb_strtolower(CanTrans($ing[$key]));
             if ($key!=0) $ing[$key]=', '.$ing[$key];
         }
 
@@ -106,12 +95,7 @@ class DishController extends Controller
 	{
     	ChangeLang($lang);
         $req = Ingredient::all();
-        foreach ($req as $key => $value) 
-        	{	
-        		$a=$value->name;
-        		if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-        		$value->name=$a;
-        	}
+        foreach ($req as $v) $v->name = CanTrans($v->name);
         return view('dish_add',['ings'=>$req]);
 	}
 
