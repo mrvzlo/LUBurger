@@ -9,10 +9,10 @@ class LangController extends Controller
 {
     public function change($lang)
     {
-    	$url = strtolower(url()->previous());
+    	$url = mb_strtolower(url()->previous());
         $pre = ['/en/', '/lv/', '/ru/'];
         App::setlocale($lang);
-        $lang = strtolower($lang);
+        $lang = mb_strtolower($lang);
     	$url = preg_replace($pre, $lang, $url);   
     	return redirect($url);
     }

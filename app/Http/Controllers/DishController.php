@@ -7,6 +7,7 @@ use App\Dish;
 use App\Rate;
 use App\Dish_ingr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DishController extends Controller
 {
@@ -15,32 +16,61 @@ class DishController extends Controller
         $this->middleware('chef')->except(['show', 'index']);
     }
     
-    public function index($lang, Request $req=null)
+    public function index($lang)
     {
     	ChangeLang($lang);
-        $req = Dish::all();
+        $dishes = Dish::orderBy('created_at')->get();
         $ing = Ingredient::all();
+
         foreach ($ing as $key => $value) 
         {
-            $a=$ing[$key]->name;
+            $a=$value->name;
             if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-            $ing[$key]=$a;
+            $value->name=$a;
         }
-        foreach ($req as $key => $value) 
+
+        $data=null;
+        if (!empty($_GET))
+        {
+            $data=$_GET;
+            $data['modified'] = true;
+            foreach ($dishes as $key => $di) {
+                $ingreds = Dish_ingr::where('dish_id','=',$di->id)->get();
+                    foreach ($ingreds as $key2 => $ingred) {
+                        if (!isset($data['ing'.$ingred->ingredient_id]))
+                        {
+                            unset($dishes[$key]);
+                            break;
+                        }
+                    }
+            }
+        }
+
+        foreach ($dishes as $key => $value) 
             {   
-                $rate = Rate::where('dish','=',$req[$key]->id)->get();
+                $rate = Rate::where('dish','=',$value->id)->get();
                 $count=0; $points=0;
                 foreach ($rate as $key2 => $value2) {
                     $count++;
                     $points+=$rate[$key2]->score;
                 }
-                $req[$key]->rating=$points/$count;
-                $a=$req[$key]->name;
-                $a=strtolower($a);
+                if ($count>0) $value->rating=$points/$count;
+                else $value->rating=0;
+                $a=$value->name;
+                $a=mb_strtolower($a);
                 if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-                $req[$key]->name=$a;
+                $value->name=$a;
             }
-        return view('home',['dishes'=>$req, 'ingrs'=>$ing]);
+
+        if (isset($data['orderby']) && $data['orderby']=='rate')
+        {
+            $a = array();
+            foreach ($dishes as $key => $value) $a[$key]=$value; 
+            usort($a, function($o1, $o2){return strcmp($o2->rating, $o1->rating);});
+            $dishes=$a;
+        }
+
+        return view('home',['dishes'=>$dishes, 'ingrs'=>$ing, 'param' => $data]);
     }
 
 	public function show($lang, $id)
@@ -48,28 +78,28 @@ class DishController extends Controller
     	ChangeLang($lang);
         $req = Dish::findOrFail($id);
         $a=$req->name;
-        $a=strtolower($a);
+        $a=mb_strtolower($a);
         if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
         $req->name=$a;
         $ing = Dish_ingr::where('dish_id','=',$id)->get();
 
+        $Urate=0;
         $rate = Rate::where('dish','=',$id)->get();
         $count=0; $points=0;
         foreach ($rate as $key => $value) {
             $count++;
-            $points+=$rate[$key]->score;
+            $points+=$value->score;
+            if ($value->user == Auth::User()->id) $Urate=$value->score;
         }
         $req->rating=$points/$count;
 
         foreach ($ing as $key => $value) {
-            $ing[$key]=Ingredient::findOrFail($ing[$key]->ingredient_id)->name;
-            $a=$ing[$key];
-            if (__('msg.'.$a) != 'msg.'.$a) $a=strtolower(__('msg.'.$a));
-            $ing[$key]=$a;
+            $ing[$key]=Ingredient::findOrFail($value->ingredient_id)->name;
+            if (__('msg.'.$ing[$key]) != 'msg.'.$ing[$key]) $ing[$key]=mb_strtolower(__('msg.'.$ing[$key]));
             if ($key!=0) $ing[$key]=', '.$ing[$key];
         }
 
-		return view('dish_show',['dish'=>$req,'ings'=>$ing]);
+		return view('dish_show',['dish'=>$req,'ings'=>$ing, 'Urate' => $Urate]);
 	}
 
 	public function create($lang)
@@ -78,9 +108,9 @@ class DishController extends Controller
         $req = Ingredient::all();
         foreach ($req as $key => $value) 
         	{	
-        		$a=$req[$key]->name;
+        		$a=$value->name;
         		if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
-        		$req[$key]->name=$a;
+        		$value->name=$a;
         	}
         return view('dish_add',['ings'=>$req]);
 	}

@@ -20,7 +20,7 @@ class IngredientController extends Controller
         foreach ($req as $key => $value) 
         	{	
         		$a=$req[$key]->name;
-        		$a=strtolower($a);
+        		$a=mb_strtolower($a);
         		if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
         		$req[$key]->name=$a;
         	}

@@ -24,6 +24,8 @@ return [
     'newest' => 'Newest',
     'toprate' => 'Top rated',
     'toCart' => 'Place to cart',
+    'yourRate' => 'Your rating:',
+    'totalRate' => 'Total rating',
 
     'luburger' => 'Luburger',
     'classical' => 'Classical',
@@ -45,6 +47,7 @@ return [
     'bun' => 'Bun',
     'tomatoes' => 'Tomatoes',
     'butter' => 'Butter',
+    'potatoes' => 'Potatoes',
     'tofu' => 'Tofu',
     'tomato sauce' => 'Tomato sauce',
 ];

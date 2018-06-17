@@ -160,6 +160,9 @@ class DatabaseSeeder extends Seeder
 		DB::table('ingredients')->insert([
 			'name' => 'tomato sauce',
 		]);
+		DB::table('ingredients')->insert([
+   			'name' => 'potatoes',
+  		]);
 		
 		
 		//list of ingredients
@@ -290,6 +293,10 @@ class DatabaseSeeder extends Seeder
 		DB::table('dishes_ingredients')->insert([
 			'ingredient_id' => '11',
 			'dish_id' => '7',
+		]);
+		DB::table('dishes_ingredients')->insert([
+		   'ingredient_id' => '15',
+		   'dish_id' => '6',
 		]);
 		
 		

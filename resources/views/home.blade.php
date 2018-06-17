@@ -12,16 +12,21 @@
     @endif
     <div class="row justify-content-center">
         <div class="card col-md-2">
-            <form action="{{url(App::getLocale())}}" >
-            <?php $i=0; ?><br/>
-                <input type="radio" name="order"> {{__('msg.newest')}}<br/>
-                <input type="radio" name="order"> {{__('msg.toprate')}}<br/><br/>
+            <form action="{{url(App::getLocale())}}" class='form-horizontal' accept-charset="UTF-8" enctype="multipart/form-data">
+            <br/>
+                <input type="radio" name="orderby" value="new"
+                @if (!isset($param['orderby']) || $param['orderby']!="rate") checked @endif
+                > {{__('msg.newest')}}<br/>
+                <input type="radio" name="orderby" value="rate"
+                @if (isset($param['orderby']) && $param['orderby']=="rate") checked @endif
+                > {{__('msg.toprate')}}<br/><br/>
                 @foreach ($ingrs as $ingr)
-                <?php $i++; ?>
-                <input type="checkbox" name="i{{$i}}"> {{$ingr}}<br/>
+                <input type="checkbox" name="ing{{$ingr->id}}" 
+                @if (!isset($param['modified']) || isset($param['ing'.$ingr->id])) checked @endif
+                > {{$ingr->name}}<br/>
                 @endforeach
                 <input class="btn btn-primary" type="submit" value={{__('msg.select')}}>
-                <button form="null" class="btn btn-primary">{{__('msg.cancel')}}</button> 
+                <a href="{{App::getlocale()}}" class="btn btn-primary">{{__('msg.cancel')}}</a> 
             </form>
         </div>
         @for ($j=0; $j<2; $j++)
