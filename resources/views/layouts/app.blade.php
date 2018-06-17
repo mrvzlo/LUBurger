@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{  app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -43,6 +43,7 @@
                     @if (!Auth::guest())
                     @if (Auth::User()->isChef())
                     <li><a class="navbar-brand" href="{{ url(App::getLocale().'/ingredients') }}">{{ __('msg.ingred') }}</a></li>
+                    <li><a class="navbar-brand" href="{{ url(App::getlocale().'/dish/add')}}">{{__('msg.NewDish')}}</a></li>
                     @elseif (Auth::User()->isAdmin())
                     <li><a class="navbar-brand" href="{{ url(App::getLocale().'/users') }}">{{ __('msg.users') }}</a></li>
                     @endif
@@ -51,8 +52,15 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
-                        <a class="nav-link" href=""><img style="height:22px;" src="{{ url('uploads/sun.png')}}"></a>
-                        <a class="nav-link" href=""><img style="height:22px;" src="{{ url('uploads/moon.png')}}"></a>
+                        @if (!session()->exists('theme') || session('theme')=='light')
+                        light
+                        @else
+                        dark
+                        @endif
+                        <a class="nav-link" href="{{ url('theme/light')}}">
+                            <img style="height:22px;" src="{{ url('uploads/sun.png')}}"></a>
+                        <a class="nav-link" href="{{ url('theme/dark')}}">
+                            <img style="height:22px;" src="{{ url('uploads/moon.png')}}"></a>
                         <?php $langs=['EN', 'LV', 'RU']; ?>
                         @foreach ($langs as $lang) 
                         <li><a class="nav-link" href="{{ url('lang/'.$lang)}}"><img style="height:22px;" src="{{ url('uploads/'.$lang.'.jpg')}}"></a></li>

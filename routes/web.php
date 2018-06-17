@@ -16,4 +16,9 @@ Route::get('{locale}/ingredients/new','IngredientController@store');
 
 Route::get('rate/{user}/{dish}/{score}','RatingController@assign');
 
+Route::get('theme/{color}', function($color){
+	session()->put('theme', $color);
+	return redirect()->back();
+});
+
 Route::resource('ingredient', 'IngredientController');

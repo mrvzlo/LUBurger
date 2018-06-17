@@ -2,18 +2,10 @@
 
 @section('content')
 <div class="container">
-    @if (!Auth::guest())
-        @if (Auth::User()->isChef())
-            <div class="row justify-content-center">
-                <div class ="col-md-12">
-                    <a class="btn btn-primary" href="{{App::getlocale()}}/dish/add">{{__('msg.NewDish')}}</a>
-            </div></div>
-        @endif
-    @endif
     <div class="row justify-content-center">
-        <div class="card col-md-2">
-            <form action="{{url(App::getLocale())}}" class='form-horizontal' accept-charset="UTF-8" enctype="multipart/form-data">
-            <br/>
+        <div class="col-md-2"><div class="card">
+            <div class="card-header">{{__('msg.ingred')}}</div>
+            <form action="{{url(App::getLocale())}}" class='form-horizontal card-body' accept-charset="UTF-8" enctype="multipart/form-data">
                 <input type="radio" name="orderby" value="new"
                 @if (!isset($param['orderby']) || $param['orderby']!="rate") checked @endif
                 > {{__('msg.newest')}}<br/>
@@ -28,7 +20,7 @@
                 <input class="btn btn-primary" type="submit" value={{__('msg.select')}}>
                 <a href="{{App::getlocale()}}" class="btn btn-primary">{{__('msg.cancel')}}</a> 
             </form>
-        </div>
+        </div></div>
         @for ($j=0; $j<2; $j++)
         <div class="col-md-4">
             <?php $i=0; ?>
@@ -59,6 +51,7 @@
             @endforeach
         </div>
         @endfor
+        <div class="col-md-2"></div>
     </div>
 </div>
 @endsection

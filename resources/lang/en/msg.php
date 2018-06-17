@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'home' => 'Gallery',
+    'home' => 'Menu',
     'signin' => 'Login',
     'signup' => 'Register',
     'signout' => 'Logout',
@@ -17,7 +17,7 @@ return [
     'role' => 'Role',
     'admin' => 'Admin',
     'chef' => 'Chef',
-    'none' => 'None',
+    'none' => 'Client',
     'update' => 'Update',
     'select' => 'Select',
     'cancel' => 'Cancel',

@@ -10,7 +10,7 @@ class RatingController extends Controller
 {
 	public function assign($user, $dish, $score)
 	{
-		if ($user = Auth::User()->id)
+		if (!Auth::Guest() && $user = Auth::User()->id)
 		{
 			$a = Rate::where('user','=',$user)->where('dish','=',$dish);
 			if ($a->count()==0) 
