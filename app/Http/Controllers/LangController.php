@@ -13,7 +13,7 @@ class LangController extends Controller
         $pre = ['/en/', '/lv/', '/ru/'];
         App::setlocale($lang);
         $lang = mb_strtolower($lang);
-    	$url = preg_replace($pre, $lang, $url);   
+    	$url = preg_replace($pre, $lang, $url, 1);   
     	return redirect($url);
     }
 

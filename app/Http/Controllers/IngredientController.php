@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Ingredient;
+use App\Dish_ingr;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
@@ -30,5 +31,12 @@ class IngredientController extends Controller
         $ingr->name = $data['name'];
         $ingr->save();
         return redirect($lang.'/ingredients');
+    }
+
+    public function delete($lang, $id)
+    {
+        Dish_ingr::where('ingredient_id','=',$id)->delete();
+        Ingredient::destroy($id);
+        return redirect(url($lang.'/ingredients'));
     }
 }

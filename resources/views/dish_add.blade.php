@@ -17,12 +17,12 @@
                         <div id="selects">
                             <select name="ingred" class="form-control" id="ingred">
                                 @foreach ($ings as $ingr)
-                                    <option value={{$ingr->name}}>{{$ingr->name}}</option>
+                                    <option value="{{$ingr->name}}">{{$ingr->name}}</option>
                                 @endforeach
                             </select>
                         </div>
-                            <button form="null" onclick="adding()">+</button>
-                            <button form="null" onclick="remove()">-</button><br/>
+                            <button type="button" onclick="adding()">+</button>
+                            <button type="button" onclick="remove()">-</button><br/>
 
                         <label>{{__('msg.price')}}</label>
                         <input class="form-control" name="price" type="number" value="">  
@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<script type="text/javascript">
+<script>
     var i=0;
     function adding()
     {

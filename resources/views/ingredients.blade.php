@@ -3,12 +3,16 @@
 <div class="container">
     <div class="card">
         <div class="card-body">
-            <ol>
+            <table>
              @foreach ($ings as $ingr)
-             <li>{{$ingr->name}}</li>
+             <tr>
+                <td>{{$ingr->id}}. </td>
+                <td>{{$ingr->name}} </td>
+                <td><a class=" btn-secondary btn-sm" href="{{url(App::getLocale().'/ingredient/remove/'.$ingr->id)}}">X</a></td>
+            </tr>
                 @endforeach
             
-            <li> 
+            </table> 
             	<form action="{{url(App::getLocale().'/ingredients/new')}}" class='form-horizontal' accept-charset="UTF-8">
             		@csrf
                     <input class="form-control "{{($errors->has('name') ? ' is-invalid' : '' )}} name="name" type="text" value="" autofocus>     

@@ -13,6 +13,7 @@ Route::get('{locale}/dish/{id}','DishController@show');
 
 Route::get('{locale}/ingredients','IngredientController@index');
 Route::get('{locale}/ingredients/new','IngredientController@store');
+Route::get('{locale}/ingredient/remove/{id}','IngredientController@delete');
 
 Route::get('{locale}/cart', 'CartController@index');
 Route::get('{locale}/cart/add/{id}', 'CartController@add');

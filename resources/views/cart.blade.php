@@ -44,9 +44,7 @@
                 	{{__('msg.dstAddress')}}
                 	<input type="text" class="form-control" name="address">
                                 @if ($errors->has('address'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
+                                        <p>{{ $errors->first('address') }}</p>
                                 @endif
                 	<input type="submit" class="btn btn-primary" name="submit" value="{{__('msg.makeOrder')}}">
                 </form>
