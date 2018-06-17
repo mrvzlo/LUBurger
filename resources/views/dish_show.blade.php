@@ -24,6 +24,7 @@
                              alt="">
                         @endfor  
                     </p>
+                    <button class="btn btn-primary">{{__('msg.toCart')}}</button>
                 </div>
             </div>
         </div>

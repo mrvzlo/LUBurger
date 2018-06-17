@@ -5,12 +5,25 @@
     @if (!Auth::guest())
         @if (Auth::User()->isChef())
             <div class="row justify-content-center">
-                <div class ="col-md-10">
+                <div class ="col-md-12">
                     <a class="btn btn-primary" href="{{App::getlocale()}}/dish/add">{{__('msg.NewDish')}}</a>
             </div></div>
         @endif
     @endif
     <div class="row justify-content-center">
+        <div class="card col-md-2">
+            <form action="{{url(App::getLocale())}}" >
+            <?php $i=0; ?><br/>
+                <input type="radio" name="order"> {{__('msg.newest')}}<br/>
+                <input type="radio" name="order"> {{__('msg.toprate')}}<br/><br/>
+                @foreach ($ingrs as $ingr)
+                <?php $i++; ?>
+                <input type="checkbox" name="i{{$i}}"> {{$ingr}}<br/>
+                @endforeach
+                <input class="btn btn-primary" type="submit" value={{__('msg.select')}}>
+                <button form="null" class="btn btn-primary">{{__('msg.cancel')}}</button> 
+            </form>
+        </div>
         @for ($j=0; $j<2; $j++)
         <div class="col-md-4">
             <?php $i=0; ?>

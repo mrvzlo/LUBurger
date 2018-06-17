@@ -15,10 +15,17 @@ class DishController extends Controller
         $this->middleware('chef')->except(['show', 'index']);
     }
     
-    public function index($lang)
+    public function index($lang, Request $req=null)
     {
     	ChangeLang($lang);
         $req = Dish::all();
+        $ing = Ingredient::all();
+        foreach ($ing as $key => $value) 
+        {
+            $a=$ing[$key]->name;
+            if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
+            $ing[$key]=$a;
+        }
         foreach ($req as $key => $value) 
             {   
                 $rate = Rate::where('dish','=',$req[$key]->id)->get();
@@ -33,7 +40,7 @@ class DishController extends Controller
                 if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
                 $req[$key]->name=$a;
             }
-        return view('home',['dishes'=>$req]);
+        return view('home',['dishes'=>$req, 'ingrs'=>$ing]);
     }
 
 	public function show($lang, $id)
@@ -57,7 +64,6 @@ class DishController extends Controller
         foreach ($ing as $key => $value) {
             $ing[$key]=Ingredient::findOrFail($ing[$key]->ingredient_id)->name;
             $a=$ing[$key];
-            $a=strtolower($a);
             if (__('msg.'.$a) != 'msg.'.$a) $a=strtolower(__('msg.'.$a));
             $ing[$key]=$a;
             if ($key!=0) $ing[$key]=', '.$ing[$key];
@@ -73,7 +79,6 @@ class DishController extends Controller
         foreach ($req as $key => $value) 
         	{	
         		$a=$req[$key]->name;
-        		$a=strtolower($a);
         		if (__('msg.'.$a) != 'msg.'.$a) $a=__('msg.'.$a);
         		$req[$key]->name=$a;
         	}

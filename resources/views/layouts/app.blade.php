@@ -51,9 +51,11 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
+                        <a class="nav-link" href=""><img style="height:22px;" src="{{ url('uploads/sun.png')}}"></a>
+                        <a class="nav-link" href=""><img style="height:22px;" src="{{ url('uploads/moon.png')}}"></a>
                         <?php $langs=['EN', 'LV', 'RU']; ?>
                         @foreach ($langs as $lang) 
-                        <li><a class="nav-link" href="{{ url('lang/'.$lang)}}">{{$lang}}</a></li>
+                        <li><a class="nav-link" href="{{ url('lang/'.$lang)}}"><img style="height:22px;" src="{{ url('uploads/'.$lang.'.jpg')}}"></a></li>
                         @endforeach
                         <!-- Authentication Links -->
                         @guest
