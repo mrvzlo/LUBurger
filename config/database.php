@@ -1,34 +1,19 @@
 <?php
 
+$url = parse_url(getenv("postgres://toprfkirozzggz:cb7a4caba1cff442f1e9539a44bf4a773abd8edea4eabd536fed693c5de0b477@ec2-54-247-125-137.eu-west-1.compute.amazonaws.com:5432/dkopn5bill805"));
+
+                   $user => $url["user"];
+                   $password => $url["pass"];
+                   $host => $url["host"];
+                   $database => substr($url["path"], 1);
+				   
+
+
 return [
 
-    /*
-    |--------------------------------------------------------------------------
-    | Default Database Connection Name
-    |--------------------------------------------------------------------------
-    |
-    | Here you may specify which of the database connections below you wish
-    | to use as your default connection for all database work. Of course
-    | you may use many connections at once using the Database library.
-    |
-    */
 
-    'default' => env('DB_CONNECTION', 'mysql'),
+    'default' => env('DB_CONNECTION', 'pgsql_production'),
 
-    /*
-    |--------------------------------------------------------------------------
-    | Database Connections
-    |--------------------------------------------------------------------------
-    |
-    | Here are each of the database connections setup for your application.
-    | Of course, examples of configuring each database platform that is
-    | supported by Laravel is shown below to make development simple.
-    |
-    |
-    | All database work in Laravel is done through the PHP PDO facilities
-    | so make sure you have the driver for your particular database of
-    | choice installed on your machine before you begin development.
-    |
     */
 
     'connections' => [
@@ -66,6 +51,18 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
+		
+        'pgsql_production' => [
+            'driver' => 'pgsql',
+            'host' => $host,
+            'database' => $database,
+            'username' => $username,
+            'password' => $password,
+            'charset' => 'utf8',
+            'prefix' => '',
+            'schema' => 'public',
+        ],
+
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',
