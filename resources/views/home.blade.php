@@ -34,16 +34,17 @@
                 <div class="card-body">
                     <img class="dishimg" src="{{ url('uploads/'.$dish->photo_url)}}" alt="">
                     <p class="rating">
-                        @for ($r=1; $r<6; $r++)<img style="width: 20px;" 
+                        <?php if (!session()->exists('theme') || session('theme')=='light') $a=1; else $a=0; ?>
+                        @for ($r=1; $r<6; $r++)<img class="star" 
                             @if($r<=$dish->rating)
-                                src="{{ url('uploads/10.png')}}"
+                                src="{{ url('uploads/'.$a.'3.png')}}"
                             @elseif ($r<=$dish->rating+0.5)
-                                src="{{ url('uploads/05.png')}}"
+                                src="{{ url('uploads/'.$a.'2.png')}}"
                             @else
-                                src="{{ url('uploads/00.png')}}"
+                                src="{{ url('uploads/'.$a.'1.png')}}"
                             @endif
                              alt="">
-                        @endfor 
+                        @endfor  
                     </p>
                 </div>
                 </a>

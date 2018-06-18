@@ -26,7 +26,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/man.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/mainn.css') }}" rel="stylesheet">
                         @if (!session()->exists('theme') || session('theme')=='light')
     <link href="{{ asset('css/light.css') }}" rel="stylesheet">
                         @else

@@ -1,0 +1,35 @@
+﻿body {background-color: #ffe099;}
+.card-header, .toprow{background-color: #e80;}
+.col-form-label, .card-body, .dropdown-menu, .dropdown-item, .dropdown-item:hover, .navbar-laravel, .form-control, select, select option, input {
+	background-color: #fc6;
+}
+.btn-link, input,.navbar-brand, .nav-link,.col-form-label, .card-body, .dropdown-menu, .dropdown-item, .dropdown-item:hover, .card-header, option, select {
+	color: #000000 !important;
+}
+.dropdown-item:hover, .navbar-brand:hover, .nav-link:hover{
+	color: #0e0033 !important;
+}
+.form-control:focus
+{
+	background-color: #fb4;
+}
+.btn.btn-a, .txtbtn {
+	background-color: #e80;
+	color: #000 !important;
+	border-color: #e80;
+	font-weight: bold;
+	border: 1px solid #fd8;
+} 
+.card, .card2 {
+	border-color: #fb4;
+	border-style: solid;
+	border-width: 1px;
+}
+.navbar-brand, .nav-link
+{
+	font-weight: bold;
+}
+.price{
+	color: #649;
+}
+

@@ -1,55 +1,29 @@
-body {
-	background-color: #001;
-}
-
-.card-header, .toprow{
-	background-color: #050025;
-}
-
-.col-form-label, .card-body, .dropdown-menu, .dropdown-item, .dropdown-item:hover, .navbar-laravel,
-	.form-control, select, select option, input {
+body {background-color: #001;}
+.card-header, .toprow{background-color: #050025;}
+.col-form-label, .card-body, .dropdown-menu, .dropdown-item, .dropdown-item:hover, .navbar-laravel, .form-control, select, select option, input {
 	background-color: #0e0033;
 }
-
-.btn-link, input,.navbar-brand, .nav-link,.col-form-label, .card-body, .dropdown-menu, 
-	.dropdown-item, .dropdown-item:hover, .card-header, option, select {
+.btn-link, input,.navbar-brand, .nav-link,.col-form-label, .card-body, .dropdown-menu, .dropdown-item, .dropdown-item:hover, .card-header, option, select {
 	color: #ffffff !important;
 }
-
-.dropdown-item:hover, .navbar-brand:hover, .nav-link:hover{
-	color: #77f !important;
-}
-
-.form-control:focus
-{
-	background-color: #0e0033;
-}
-
+.dropdown-item:hover, .navbar-brand:hover, .nav-link:hover{color: #77f !important;}
+.form-control:focus{background-color: #0e0033;}
 .btn.btn-a, .txtbtn {
 	background-color: #97c5ff;
 	color: #000 !important;
 	border-color: #000;
 	font-weight: bold;
 } 
-
 .form-control {
 	color: #ffffff;
 	border: 1px solid #ffc597;
 }
-
 .card, .card2 {
 	border-color: #ffd700;
 	border-style: solid;
 	border-width: 1px;
 }
-
-.navbar-brand, .nav-link
-{
-	font-weight: bold;
-}
-
-.price{
-	color: #eda;
-}
+.navbar-brand, .nav-link{font-weight: bold;}
+.price{color: #eda;}
 
 

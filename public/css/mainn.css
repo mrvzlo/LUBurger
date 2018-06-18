@@ -8,6 +8,9 @@ nav.navbar
 	width:100%;
 	position: fixed;
 }
+
+.star{width: 20px;}
+
 .container:not(.top), .galereja
 {
 	margin-top:3%;
