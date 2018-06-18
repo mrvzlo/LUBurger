@@ -2,10 +2,11 @@
 
 $url = parse_url(getenv("postgres://toprfkirozzggz:cb7a4caba1cff442f1e9539a44bf4a773abd8edea4eabd536fed693c5de0b477@ec2-54-247-125-137.eu-west-1.compute.amazonaws.com:5432/dkopn5bill805"));
 
-                   $user = $url["user"];
-                   $password = $url["pass"];
-                   $host = $url["host"];
-                   $database = substr($url["path"], 1);
+$user = $url["user"];
+$port = $url["port"];
+$password = $url["pass"];
+$host = $url["host"];
+$database = substr($url["path"], 1);
 				   
 
 
@@ -53,6 +54,7 @@ return [
         'pgsql_production' => [
             'driver' => 'pgsql',
             'host' => $host,
+            'port' => $port,
             'database' => $database,
             'username' => $username,
             'password' => $password,
