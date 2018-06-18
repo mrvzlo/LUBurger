@@ -14,8 +14,6 @@ return [
 
     'default' => env('DB_CONNECTION', 'pgsql_production'),
 
-    */
-
     'connections' => [
 
         'sqlite' => [
