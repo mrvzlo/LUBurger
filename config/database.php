@@ -56,7 +56,7 @@ return [
             'host' => $host,
             'port' => $port,
             'database' => $database,
-            'username' => $username,
+            'username' => $user,
             'password' => $password,
             'charset' => 'utf8',
             'prefix' => '',
