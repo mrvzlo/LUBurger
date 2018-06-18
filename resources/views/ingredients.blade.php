@@ -3,10 +3,10 @@
 <div class="container col-md-5">
     <div class="card">
         <div class="card-body">
-            <table class="table">
+            <table class="table"><?php $i=1; ?>
              @foreach ($ings as $ingr)
              <tr>
-                <td>{{$ingr->id}}. </td>
+                <td>{{$i++}}. </td>
                 <td>{{$ingr->name}} </td>
                 <td><a class=" btn-secondary btn-sm" href="{{url(App::getLocale().'/ingredient/remove/'.$ingr->id)}}">X</a></td>
             </tr>

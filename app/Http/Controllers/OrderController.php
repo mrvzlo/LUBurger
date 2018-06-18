@@ -43,7 +43,7 @@ class OrderController extends Controller
 					$v->delivery = date_create_from_format('Y-m-d H:i:s',$v->delivery)->format('d.m H:i');
     		}
     		$statuses = array('preparing', 'delivering','delivered');
-    		$v->status = $statuses[$v->status];
+    		$v->status = CanTrans($statuses[$v->status]);
     	}
     	return view('orders',['ords'=>$req,'count'=>$count]);
 	}
@@ -99,7 +99,7 @@ class OrderController extends Controller
     		}
     		$statuses = array('preparing', 'delivering','delivered');
     		$req->st=$req->status;
-    		$req->status = $statuses[$req->status];
+    		$req->status = CanTrans($statuses[$req->status]);
 
     	$OD = Ord_dish::where('order_id','=',$id)->get();
         foreach ($OD as $key => $value) {

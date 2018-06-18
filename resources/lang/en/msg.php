@@ -43,6 +43,9 @@ return [
     'details' => 'Details',
     'ordby' => 'Ordered by',
     'set' => 'Set',
+    'delivered' => 'Delivering',
+    'delivering' => 'Delivering',
+    'preparing' => 'Preparing',
 
     'luburger' => 'Luburger',
     'classical' => 'Classical',

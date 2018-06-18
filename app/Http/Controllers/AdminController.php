@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -27,7 +28,7 @@ class AdminController extends Controller
             if ($value=='chef') $res=3;
             elseif ($value=='admin') $res=2;
             else $res=1;
-            User::where('id','=',$id)->update(['role'=>$res]);
+            if ($id != Auth::User()->id) User::where('id','=',$id)->update(['role'=>$res]);
         }
         return redirect($lang.'/users');
     }

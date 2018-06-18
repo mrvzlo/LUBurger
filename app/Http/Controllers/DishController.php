@@ -80,8 +80,8 @@ class DishController extends Controller
             $points+=$value->score;
             if (!Auth::Guest() && $value->user == Auth::User()->id) $Urate=$value->score;
         }
-        $req->rating=$points/$count;
-
+        if ($count!=0) $req->rating=$points/$count;
+        else $req->rating=0;
         foreach ($ing as $key => $value) {
             $ing[$key]=Ingredient::findOrFail($value->ingredient_id)->name;
             $ing[$key]=mb_strtolower(CanTrans($ing[$key]));
