@@ -24,6 +24,7 @@ class IngredientController extends Controller
 
     public function store($lang, Request $request)
     {
+        ChangeLang($lang);
         $data = $request->all();
         $rules = array('name' => 'required|min:3|max:100|unique:ingredients',);
         $this->validate($request, $rules);

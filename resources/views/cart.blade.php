@@ -11,14 +11,13 @@
             	{{__('msg.emptyCart')}}
             	@else
                     <table class="table table-hover">
-                        <thead><tr class="table-primary">
+                        <tr class="toprow">
                             <th scope="col"></th>
                             <th scope="col">{{__('msg.dish')}}</th>
                             <th scope="col">{{__('msg.price')}}</th>
                             <th scope="col">{{__('msg.count')}}</th>
                             <th scope="col">{{__('msg.total')}}</th>
-                        </tr></thead>
-                        <tbody>
+                        </tr>
                         	<?php $i=1; ?>
 		            	@foreach ($list as $dish)
                         <tr>
@@ -26,27 +25,26 @@
                             <td>{{ $dish->name }}</td>
                             <td>{{ $dish->price  }}€</td>
                             <td>
-                            	<a class="btn btn-primary btn-sm" href='{{ url(App::getLocale().'/cart/add/'.$dish->id) }}'>+</a>
-                            	 {{ $dish->count  }} 
-                            	<a class="btn btn-primary btn-sm" href='{{ url(App::getLocale().'/cart/remove/'.$dish->id) }}'>-</a>
+                                <a class="btn-a txtbtn" href='{{ url(App::getLocale().'/cart/remove/'.$dish->id) }}'> < </a>
+                            	 <label class="dvin">{{ $dish->count  }}</label> 
+                                <a class="btn-a txtbtn" href='{{ url(App::getLocale().'/cart/add/'.$dish->id) }}'> > </a>
                             </td>
                             <td>{{ $dish->count*$dish->price }}€</td>
                         </tr>
                         @endforeach 
-                        <tr class="table-primary">
+                        <tr class="toprow">
                             <td colspan="4"></td>
                             <td>{{ $total }}€</td>
-                        </tr>                        
-                        </tbody>
+                        </tr>           
                     </table>
                 <form action="{{url(App::getLocale().'/order/new')}}" class='form-horizontal' accept-charset="UTF-8" enctype="multipart/form-data">
                 	@csrf
                 	{{__('msg.dstAddress')}}
-                	<input type="text" class="form-control" name="address">
+                	<input type="text" class="form-control half" name="address">
+                    <input type="submit" class="btn btn-a right" name="submit" value="{{__('msg.makeOrder')}}">
                                 @if ($errors->has('address'))
                                         <p>{{ $errors->first('address') }}</p>
                                 @endif
-                	<input type="submit" class="btn btn-primary" name="submit" value="{{__('msg.makeOrder')}}">
                 </form>
             	@endif
             </div>

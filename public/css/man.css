@@ -1,0 +1,86 @@
+.btn.btn-a, .txtbtn {
+	border-radius: 0.9rem;
+	padding: 7px;
+} 
+nav.navbar
+{
+	z-index: 1;
+	width:100%;
+	position: fixed;
+}
+.container:not(.top), .galereja
+{
+	margin-top:3%;
+}
+
+a{text-decoration: none;}
+a:hover{text-decoration: none;}
+
+.form-control {
+	border-radius: 0.9rem;
+}
+
+td { 
+	padding: 6px; 
+}
+
+.tablet {
+	width: 50%;
+}
+
+.card-header {
+	text-align: center;
+	font-weight: bold;
+	font-size: 120%;
+}
+.card{
+	margin-bottom: 20px;
+}
+.galereja{
+	margin-left: 2%;
+	margin-right: 2%;
+}
+.dishimg
+{
+	width:100%;
+}
+.rating
+{
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+}
+.navbar-brand, .nav-link, .price
+{
+	font-weight: bold;
+}
+
+.price
+{
+	font-size: 150%;
+}
+
+.right, .totalright
+{
+	float:right;
+}
+.totalright
+{
+	text-align: right;
+}
+
+.half
+{
+	display: inline;
+	width:50%;
+}
+
+.txtbtn, .dvin
+{
+	padding: 0px 5px;
+}
+
+.botmarg
+{
+	margin-bottom: 20px;
+}

@@ -9,19 +9,18 @@
             <div class="card-body">
                 @if ($count!=0)
                     <table class="table table-hover">
-                        <thead><tr class="table-primary">
-                            <th scope="col"></th>
+                        <tr class="toprow">
+                            <th ></th>
                             @if (Auth::User()->isAdmin())
-                            <th scope="col">{{__('msg.user')}}</th>
-                            <th scope="col">{{__('msg.phone')}}</th>
+                            <th>{{__('msg.user')}}</th>
+                            <th>{{__('msg.phone')}}</th>
                             @endif
-                            <th scope="col">{{__('msg.dstAddress')}}</th>
-                            <th scope="col">{{__('msg.price')}}</th>
-                            <th scope="col">{{__('msg.status')}}</th>
-                            <th scope="col">{{__('msg.dTime')}}</th>
+                            <th>{{__('msg.dstAddress')}}</th>
+                            <th>{{__('msg.price')}}</th>
+                            <th>{{__('msg.status')}}</th>
+                            <th>{{__('msg.dTime')}}</th>
                             <th></th>
-                        </tr></thead>
-                        <tbody>
+                        </tr>
                             <?php $i=1; ?>
                         @foreach ($ords as $ord)
                         <tr class="{{$ord->status}}">
@@ -34,10 +33,9 @@
                             <td>{{ $ord->sum  }}€</td>
                             <td>{{ $ord->status  }}  </td>
                             <td>{{ $ord->delivery }}</td>
-                            <td><a class="btn btn-primary btn-sm" href="{{url(App::getLocale().'/order/'.$ord->id)}}">{{ __('msg.details') }}</a></td>
+                            <td><a class="btn btn-a btn-sm" href="{{url(App::getLocale().'/order/'.$ord->id)}}">{{ __('msg.details') }}</a></td>
                         </tr>
-                        @endforeach          
-                        </tbody>
+                        @endforeach     
                     </table>
                 @else
                 {{__('msg.noOrder')}}

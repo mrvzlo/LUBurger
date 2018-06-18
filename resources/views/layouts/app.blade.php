@@ -26,13 +26,12 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <?php /*
+    <link href="{{ asset('css/man.css') }}" rel="stylesheet">
                         @if (!session()->exists('theme') || session('theme')=='light')
-                        light
+    <link href="{{ asset('css/light.css') }}" rel="stylesheet">
                         @else
-                        dark
-                        @endif */ 
-    ?>
+    <link href="{{ asset('css/dark.css') }}" rel="stylesheet">
+                        @endif 
     <style >
     * {font-family: 'Montserrat', sans-serif;}
 </style>
@@ -40,7 +39,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
+            <div class="container top">
                 <a class="navbar-brand" href="{{ url(App::getLocale()) }}">
                     {{ __('msg.home') }}
                 </a>

@@ -18,14 +18,13 @@
                 @endif
 
                     <table class="table table-hover">
-                        <thead><tr class="table-primary">
+                        <tr class="toprow">
                             <th scope="col"></th>
                             <th scope="col">{{__('msg.dish')}}</th>
                             <th scope="col">{{__('msg.price')}}</th>
                             <th scope="col">{{__('msg.count')}}</th>
                             <th scope="col">{{__('msg.total')}}</th>
-                        </tr></thead>
-                        <tbody>
+                        </tr>
                             <?php $i=1; ?>
                         @foreach ($list as $dish)
                         <tr>
@@ -36,18 +35,17 @@
                             <td>{{ $dish->count*$dish->price }}€</td>
                         </tr>
                         @endforeach 
-                        <tr class="table-primary">
+                        <tr class="toprow">
                             <td colspan="4"></td>
                             <td>{{ $ord->sum }}€</td>
-                        </tr>                        
-                        </tbody>
+                        </tr>           
                     </table>
                 @if (Auth::User()->isAdmin() && $ord->st==0)
                 <form action="{{url(App::getLocale().'/order/update/'.$ord->id)}}" class='form-horizontal' accept-charset="UTF-8">
                     {{__('msg.dTime')}}
                     <input class="form-control" type="time" name="time">
                         @if ($errors->has('time')) <p>{{ $errors->first('time') }}</p> @endif 
-                    <input class="btn btn-primary" type="submit" value={{__('msg.set')}}>
+                    <input class="btn btn-a" type="submit" value={{__('msg.set')}}>
                 </form>
                 @endif
             </div>

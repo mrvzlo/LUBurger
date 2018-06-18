@@ -8,9 +8,9 @@
         <div class="card-body">
             <form action="{{url(App::getLocale().'/users/update')}}" class='form-horizontal'>
             <table class="table table-hover">
-            <tr>
+            <tr class="toprow">
                 <th></th>
-                <th>{{__('msg.name')}}</th>
+                <th>{{__('msg.user')}}</th>
                 <th>{{__('msg.email')}}</th>
                 <th>{{__('msg.phone')}}</th>
                 <th>{{__('msg.role')}}</th>
@@ -33,7 +33,7 @@
                 </tr>@endforeach
             </table>
             @csrf
-            <input class="btn btn-primary" type="submit" value={{__('msg.update')}}>
+            <input class="btn right btn-a " type="submit" value={{__('msg.update')}}>
             </form>
         </div>
     </div>

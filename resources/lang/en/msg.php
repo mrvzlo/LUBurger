@@ -26,7 +26,7 @@ return [
     'toprate' => 'Top rated',
     'toCart' => 'Place to cart',
     'yourRate' => 'Your rating:',
-    'totalRate' => 'Total rating',
+    'totalRate' => 'Average rating',
     'cart' => 'Cart',
     'dish' => 'Dish',
     'count' => 'Count',

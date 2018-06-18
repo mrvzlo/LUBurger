@@ -10,10 +10,12 @@
                     <form method="Post" action="{{url(App::getLocale().'/dish/new')}}" class='form-horizontal' accept-charset="UTF-8" enctype="multipart/form-data">
                         @csrf
                         <label>{{__('msg.name')}}</label>
-                        <input class="form-control" name="name" type="text" value="">   
+                        <input class="form-control botmarg" name="name" type="text" value="">   
                         @if ($errors->has('name')) <p>{{ $errors->first('name') }}</p> @endif 
 
                         <label>{{__('msg.ingred')}}</label>
+                            <button type="button" class="btn btn-a" onclick="adding()">+</button>
+                            <button type="button" class="btn btn-a" onclick="remove()">-</button><br/>
                         <div id="selects">
                             <select name="ingred" class="form-control" id="ingred">
                                 @foreach ($ings as $ingr)
@@ -21,18 +23,16 @@
                                 @endforeach
                             </select>
                         </div>
-                            <button type="button" onclick="adding()">+</button>
-                            <button type="button" onclick="remove()">-</button><br/>
 
                         <label>{{__('msg.price')}}</label>
-                        <input class="form-control" name="price" type="number" value="">  
+                        <input class="form-control botmarg" name="price" type="number" value="">  
                         @if ($errors->has('price')) <p>{{ $errors->first('price') }}</p> @endif 
 
                         <label>{{__('msg.photo')}}</label>
-                        <input class="form-control" type="file" name="file">
+                        <input class="form-control botmarg" type="file" name="file">
                         @if ($errors->has('file')) <p>{{ $errors->first('file') }}</p> @endif 
 
-                        <input class="btn btn-primary" type="submit" value={{__('msg.add')}}>
+                        <input class="btn btn-a right" type="submit" value={{__('msg.add')}}>
                     </form>  
                 </div>
             </div>

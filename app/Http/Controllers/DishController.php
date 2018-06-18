@@ -78,7 +78,7 @@ class DishController extends Controller
         foreach ($rate as $key => $value) {
             $count++;
             $points+=$value->score;
-            if ($value->user == Auth::User()->id) $Urate=$value->score;
+            if (!Auth::Guest() && $value->user == Auth::User()->id) $Urate=$value->score;
         }
         $req->rating=$points/$count;
 

@@ -26,7 +26,7 @@ return [
     'toprate' => 'Labākie',
     'toCart' => 'Pievienot grozam',
     'yourRate' => 'Jūsu vērtējums:',
-    'totalRate' => 'Vērtējums',
+    'totalRate' => 'Vidējais vērtējums',
     'cart' => 'Grozs',
     'dish' => 'Ēdiens',
     'count' => 'Daudzums',

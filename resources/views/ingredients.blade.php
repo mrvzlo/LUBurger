@@ -1,9 +1,9 @@
 @extends('layouts.app', ['title' => __('msg.ingred')])
 @section('content')
-<div class="container">
+<div class="container col-md-5">
     <div class="card">
         <div class="card-body">
-            <table>
+            <table class="table">
              @foreach ($ings as $ingr)
              <tr>
                 <td>{{$ingr->id}}. </td>
@@ -15,9 +15,9 @@
             </table> 
             	<form action="{{url(App::getLocale().'/ingredients/new')}}" class='form-horizontal' accept-charset="UTF-8">
             		@csrf
-                    <input class="form-control "{{($errors->has('name') ? ' is-invalid' : '' )}} name="name" type="text" value="" autofocus>     
+                    <input class="form-control half"{{($errors->has('name') ? ' is-invalid' : '' )}} name="name" type="text" value="" autofocus>     
+                    <input class="btn btn-a right" type="submit" value={{__('msg.add')}}>
                     @if ($errors->has('name')) <p>{{ $errors->first('name') }}</p> @endif 
-                    <input class="btn btn-primary" type="submit" value={{__('msg.add')}}>
                 </form>  
             </li>
             </ol>
