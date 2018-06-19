@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\order;
 use App\dish;
-use App\ord_Dish;
+use App\ord_dish;
 use App\user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
