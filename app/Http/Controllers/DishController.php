@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Ingredient;
-use App\Dish;
-use App\Rate;
-use App\Dish_ingr;
+use App\ingredient;
+use App\dish;
+use App\rate;
+use App\dish_ingr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
