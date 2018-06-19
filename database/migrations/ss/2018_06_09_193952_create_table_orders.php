@@ -16,12 +16,14 @@ class CreateTableOrders extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->integer('status')->default(0);
             $table->decimal('sum', 5, 2);
             $table->string('address');
             $table->datetime('delivery')->nullable();
             $table->timestamps();
+        });
+        Schema::table('orders', function($table) {
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
