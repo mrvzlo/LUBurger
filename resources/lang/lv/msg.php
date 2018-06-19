@@ -43,6 +43,9 @@ return [
     'details' => 'Detaļas',
     'ordby' => 'Sakārtot pēc',
     'set' => 'Uzstādīt',
+    'delivered' => 'Piegadāts',
+    'delivering' => 'Piegadas',
+    'preparing' => 'Gatavojas',
 
     'luburger' => 'LUburgers',
     'classical' => 'Klasiskais Burgers',

@@ -43,7 +43,7 @@ return [
     'details' => 'Details',
     'ordby' => 'Ordered by',
     'set' => 'Set',
-    'delivered' => 'Delivering',
+    'delivered' => 'Delivered',
     'delivering' => 'Delivering',
     'preparing' => 'Preparing',
 
