@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\User;
-use App\Ingredient;
-use App\Dish_ingr;
+use App\Http\Controllers\User;
+use App\Http\Controllers\Ingredient;
+use App\Http\Controllers\Dish_ingr;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
