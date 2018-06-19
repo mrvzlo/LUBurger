@@ -7,13 +7,14 @@ use App\Rate;
 use App\Dish_ingr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
-class DishController extends Http\Controllers\Controller
+class DishController extends Controller
 {
-    /*public function __construct()
+    public function __construct()
     {
         $this->middleware('chef')->except(['show', 'index']);
-    }*/
+    }
     
     public function index($lang)
     {
