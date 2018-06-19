@@ -1,6 +1,6 @@
 <?php
 
-$url = parse_url(getenv("postgres://toprfkirozzggz:cb7a4caba1cff442f1e9539a44bf4a773abd8edea4eabd536fed693c5de0b477@ec2-54-247-125-137.eu-west-1.compute.amazonaws.com:5432/dkopn5bill805"));
+$url = parse_url(getenv("postgres://fdefyoktzhaqct:f6db053bf809390f8b766c73d90906ea16ed9a83f0aa7a108697e9780f02a794@ec2-79-125-12-48.eu-west-1.compute.amazonaws.com:5432/d99rgc00qge29"));
 
 return [
 
