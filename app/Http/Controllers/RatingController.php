@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Rate;
+use App\rate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
