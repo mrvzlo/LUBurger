@@ -68,7 +68,7 @@
                             <img style="height:22px;" src="{{ url('uploads/sun.png')}}" alt=""></a></li>
                         <li><a class="nav-link" href="{{ url('theme/dark')}}">
                             <img style="height:22px;" src="{{ url('uploads/moon.png')}}" alt=""></a></li>
-                        <?php $langs=['EN', 'LV', 'RU']; ?>
+                        <?php $langs=['en', 'lv', 'ru']; ?>
                         @foreach ($langs as $lang) 
                         <li><a class="nav-link" href="{{ url('lang/'.$lang)}}"><img style="height:22px;" src="{{ url('uploads/'.$lang.'.jpg')}}" alt=""></a></li>
                         @endforeach
