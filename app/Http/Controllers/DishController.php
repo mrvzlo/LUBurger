@@ -1,6 +1,5 @@
 <?php
 
-namespace App\Http\Controllers;
 namespace App;
 use App\Ingredient;
 use App\Dish;
@@ -8,6 +7,7 @@ use App\Rate;
 use App\Dish_ingr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+namespace App\Http\Controllers;
 
 class DishController extends Controller
 {
