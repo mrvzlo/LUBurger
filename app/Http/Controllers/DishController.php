@@ -10,10 +10,10 @@ use Illuminate\Support\Facades\Auth;
 
 class DishController extends Http\Controllers\Controller
 {
-    public function __construct()
+    /*public function __construct()
     {
         $this->middleware('chef')->except(['show', 'index']);
-    }
+    }*/
     
     public function index($lang)
     {
