@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+namespace App;
 use App\Ingredient;
 use App\Dish;
 use App\Rate;
