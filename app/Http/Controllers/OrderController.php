@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Order;
-use App\Http\Controllers\Dish;
-use App\Http\Controllers\Ord_Dish;
-use App\Http\Controllers\User;
+use App\Order;
+use App\Dish;
+use App\Ord_Dish;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;

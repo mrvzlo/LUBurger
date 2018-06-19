@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\User;
-use App\Http\Controllers\Ingredient;
-use App\Http\Controllers\Dish_ingr;
+use App\User;
+use App\Ingredient;
+use App\Dish_ingr;
 use Illuminate\Http\Request;
 
 class IngredientController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('chef');
+        //$this->middleware('chef');
     }
 
 	public function index($lang)
