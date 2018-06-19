@@ -7,9 +7,8 @@ use App\Rate;
 use App\Dish_ingr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-namespace App\Http\Controllers;
 
-class DishController extends Controller
+class DishController extends Http\Controllers\Controller
 {
     public function __construct()
     {
