@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Http\Controllers;
 
-use App\Ingredient;
-use App\Dish;
-use App\Rate;
-use App\Dish_ingr;
+use App\Http\Controllers\Ingredient.php;
+use App\Http\Controllers\Dish.php;
+use App\Http\Controllers\Rate.php;
+use App\Http\Controllers\Dish_ingr.php;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
