@@ -50,12 +50,12 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        if ($data['g-recaptcha-response']=="")
+        /*if ($data['g-recaptcha-response']=="")
         {
             $t = new csrf_log();
             $t->ip = Request::ip();
             $t->save();
-        }
+        }*/
         return Validator::make($data, [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
