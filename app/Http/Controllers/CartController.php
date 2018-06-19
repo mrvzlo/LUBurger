@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Dish;
+use App\dish;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
