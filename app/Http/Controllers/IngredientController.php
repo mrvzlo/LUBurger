@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\user;
+use App\User;
 use App\ingredient;
 use App\dish_ingr;
 use Illuminate\Http\Request;
